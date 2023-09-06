@@ -7,6 +7,7 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import GTranslateIcon from "@mui/icons-material/GTranslate";
 import MainListItems from "../listItems";
 
 const drawerWidth = 240;
@@ -55,7 +56,7 @@ const Drawer = styled(MuiDrawer, {
   },
 }));
 
-export default function SideNavBar() {
+export default function SideNavBar({ setLanguage }) {
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -79,6 +80,9 @@ export default function SideNavBar() {
       <List component="nav">
         <MainListItems />
       </List>
+      {/* <IconButton onClick={() => setLanguage("fr")}>
+        <GTranslateIcon />
+      </IconButton> only for testing*/}
     </Drawer>
   );
 }
