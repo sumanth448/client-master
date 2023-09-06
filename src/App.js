@@ -3,7 +3,10 @@ import React, { useRef } from 'react';
 import { Typography } from '@mui/material';
 import { GlobalLoader } from './components/common/GlobalLoader';
 import { ToastMessageWrapper } from './components/common/ToastMessageWrapper';
-import Dashboard from './components/Dashboard';
+import ApplicationRoutes from './components/common/routes';
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import SideNavBar from './components/common/SideNavBar';
 
 export const loaderContext = React.createContext((show) => {
   console.log(show)
@@ -59,11 +62,14 @@ export const App = () => {
   return (
     <loaderContext.Provider value={toggleLoader}>
       <toastContext.Provider value={renderToast}>
+      <Box sx={{ display: "flex" }}>
+        <CssBaseline />
+        <SideNavBar/>
         <ToastMessageWrapper
           state={toastState}
           setState={setToastState}
         />
-        <Dashboard/>
+        <ApplicationRoutes/>
         <Typography
           component="div"
           id="loader_wrapper"
@@ -71,6 +77,8 @@ export const App = () => {
         >
           <GlobalLoader />
         </Typography>
+        </Box>
+       
       </toastContext.Provider>
     </loaderContext.Provider>
   );
