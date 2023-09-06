@@ -85,7 +85,6 @@ export const App = () => {
           <GlobalLoader />
         </Typography>
         </Box>
-       
       </toastContext.Provider>
     </loaderContext.Provider>
   );

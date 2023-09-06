@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { MENU_ITEMS } from "../../constants/constant";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
+import Copyright from "./Footer";
 
 function ApplicationRoutes(props) {
   return (
@@ -26,6 +27,7 @@ function ApplicationRoutes(props) {
           <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Routes>
       </Container>
+      <Copyright sx={{ pt: 4 }} />
     </Box>
   );
 }
