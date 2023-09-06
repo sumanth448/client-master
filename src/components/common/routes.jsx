@@ -18,7 +18,7 @@ function ApplicationRoutes(props) {
         overflow: "auto",
       }}
     >
-      <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+      <Container maxWidth="xl" sx={{ mt: 1, mb: 1 }}>
         <Routes>
           {MENU_ITEMS.map((ele) => (
             <Route path={ele.path} element={ele.component} />
