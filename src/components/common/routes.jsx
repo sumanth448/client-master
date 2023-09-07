@@ -2,10 +2,17 @@ import * as React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { MENU_ITEMS } from "../../constants/constant";
 import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
+import { makeStyles } from "@mui/styles";
 import Copyright from "./Footer";
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    margin: "12px",
+  },
+}));
+
 function ApplicationRoutes(props) {
+  const classes = useStyles();
   return (
     <Box
       component="div"
@@ -19,15 +26,14 @@ function ApplicationRoutes(props) {
         overflow: "auto",
       }}
     >
-
-      <Container maxWidth="lg" sx={{ mt: 1, mb: 1 }}>
+      <div className={classes.root}>
         <Routes>
           {MENU_ITEMS.map((ele) => (
             <Route path={ele.path} element={ele.component} />
           ))}
           <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Routes>
-      </Container>
+      </div>
       <Copyright sx={{ pt: 4 }} />
     </Box>
   );
