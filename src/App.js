@@ -7,6 +7,8 @@ import ApplicationRoutes from './components/common/routes';
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import SideNavBar from './components/common/SideNavBar';
+import i18n from './i18n';
+import { useTranslation} from 'react-i18next';
 
 export const loaderContext = React.createContext((show) => {
   console.log(show)
@@ -17,6 +19,10 @@ export const toastContext = React.createContext(
   },
 )
 export const App = () => {
+  const { t, i18n } = useTranslation();
+  const setLanguage =(language) =>{
+    i18n.changeLanguage(language)
+  }
   const loadingRef = useRef(0)
   // This will be passes as a context so that the loader is visible
   const toggleLoader = (show) => {
@@ -64,11 +70,12 @@ export const App = () => {
       <toastContext.Provider value={renderToast}>
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
-        <SideNavBar/>
+        <SideNavBar setLanguage={setLanguage}/>
         <ToastMessageWrapper
           state={toastState}
           setState={setToastState}
         />
+        {/* {t('overview')} only for testing*/} 
         <ApplicationRoutes/>
         <Typography
           component="div"
@@ -78,7 +85,6 @@ export const App = () => {
           <GlobalLoader />
         </Typography>
         </Box>
-       
       </toastContext.Provider>
     </loaderContext.Provider>
   );

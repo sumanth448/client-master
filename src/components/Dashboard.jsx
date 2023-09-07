@@ -1,29 +1,9 @@
 import * as React from "react";
-import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-import Link from "@mui/material/Link";
 import Chart from "./Chart";
 import Deposits from "./Deposits";
 import Orders from "./Orders";
-
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
 
 export default function Dashboard() {
   return (
@@ -62,7 +42,6 @@ export default function Dashboard() {
           </Paper>
         </Grid>
       </Grid>
-      {/*<Copyright sx={{ pt: 4 }} />*/}
     </>
   );
 }
