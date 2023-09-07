@@ -7,7 +7,7 @@ import Container from "@mui/material/Container";
 function ApplicationRoutes(props) {
   return (
     <Box
-      component="main"
+      component="div"
       sx={{
         backgroundColor: (theme) =>
           theme.palette.mode === "light"
@@ -18,6 +18,7 @@ function ApplicationRoutes(props) {
         overflow: "auto",
       }}
     >
+
       <Container maxWidth="xl" sx={{ mt: 1, mb: 1 }}>
         <Routes>
           {MENU_ITEMS.map((ele) => (
