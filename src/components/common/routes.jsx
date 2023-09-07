@@ -20,7 +20,7 @@ function ApplicationRoutes(props) {
       }}
     >
 
-      <Container maxWidth="xl" sx={{ mt: 1, mb: 1 }}>
+      <Container maxWidth="lg" sx={{ mt: 1, mb: 1 }}>
         <Routes>
           {MENU_ITEMS.map((ele) => (
             <Route path={ele.path} element={ele.component} />
