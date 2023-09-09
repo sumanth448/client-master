@@ -7,8 +7,10 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import GTranslateIcon from "@mui/icons-material/GTranslate";
 import MainListItems from "../listItems";
+import Title from "../../assests/Title.png";
 
 const drawerWidth = 240;
 
@@ -54,6 +56,9 @@ const Drawer = styled(MuiDrawer, {
       },
     }),
   },
+  "& .MuiPaper-root": {
+    backgroundColor: theme.themeColors.customColor.sidebarBackground,
+  },
 }));
 
 export default function SideNavBar({ setLanguage }) {
@@ -72,8 +77,17 @@ export default function SideNavBar({ setLanguage }) {
           px: [1],
         }}
       >
+        <img
+          src={Title}
+          alt="Cloud Cost"
+          style={{ height: "3.6rem", width: "12rem" }}
+        />
         <IconButton onClick={toggleDrawer}>
-          <ChevronLeftIcon />
+          {open ? (
+            <ChevronLeftIcon color="primary" />
+          ) : (
+            <ChevronRightIcon color="primary" />
+          )}
         </IconButton>
       </Toolbar>
       <Divider />

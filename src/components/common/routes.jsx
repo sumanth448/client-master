@@ -29,7 +29,7 @@ function ApplicationRoutes(props) {
       <div className={classes.root}>
         <Routes>
           {MENU_ITEMS.map((ele) => (
-            <Route path={ele.path} element={ele.component} />
+            <Route path={ele.path} key={ele.name} element={ele.component} />
           ))}
           <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Routes>

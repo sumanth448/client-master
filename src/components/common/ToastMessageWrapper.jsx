@@ -1,15 +1,15 @@
-import React from 'react'
-import { ToastMessage } from './ToastMessage'
+import React from "react";
+import { ToastMessage } from "./ToastMessage";
 
 export const ToastMessageWrapper = (props) => {
   const handleClose = () => {
-    props.setState({ ...props.state, open: false })
-  }
+    props.setState({ ...props.state, open: false });
+  };
 
   const demo = {
     content: props.state.message,
-    successpopup: props.state.type === 'success' ? true : false,
-  }
+    successpopup: props.state.type === "success" ? true : false,
+  };
 
   return (
     <>
@@ -19,8 +19,8 @@ export const ToastMessageWrapper = (props) => {
         handleClose={handleClose}
       />
     </>
-  )
-}
+  );
+};
 
 /**
  *  usage : -

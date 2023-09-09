@@ -1,61 +1,65 @@
-import { Slide, Snackbar, Typography } from '@mui/material'
-import { makeStyles } from '@mui/styles'
-import CloseIcon from '@mui/icons-material/Close'
-import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined'
-import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline'
-import React from 'react'
+import { Slide, Snackbar, Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+import CloseIcon from "@mui/icons-material/Close";
+import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
+import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
+import React from "react";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    minWidth: "360px",
     maxWidth: 550,
     top: 0,
   },
   errorColor: {
-    backgroundColor: '#EF4242',
+    backgroundColor: "#EF4242",
   },
   successColor: {
-    backgroundColor: '#13AA10',
+    backgroundColor: "#13AA10",
   },
   toastBlock: {
-    display: 'flex',
-    borderRadius: '5px',
-    alignItems: 'center',
-    justifyContent: 'space-betweeen',
-    color: 'white',
+    display: "flex",
+    borderRadius: "5px",
+    alignItems: "center",
+    justifyContent: "space-betweeen",
+    color: "white",
+    minHeight: "4rem",
   },
   close: {
-    display: 'flex',
-    justifyContent: 'flex-end',
+    marginTop: "12px",
+    display: "flex",
+    justifyContent: "flex-end",
   },
   closeButton: {
-    cursor: 'pointer',
-    marginBottom: '30px',
-    marginRight: '10px',
+    cursor: "pointer",
+    marginRight: "15px",
+    marginLeft: "15px",
   },
   toastContent: {
     maxWidth: 270,
-    margin: '25px 125px 25px 25px',
-    fontSize: '14px',
+    margin: "25px 125px 25px 25px",
+    fontSize: "14px",
   },
   warningIcon: {
-    marginLeft: '15px',
+    marginLeft: "15px",
+    marginRight: "15px",
   },
   successIcon: {
-    marginLeft: '15px',
+    marginLeft: "15px",
+    marginRight: "15px",
   },
-}))
-
+}));
 
 function SlideTransition(props) {
-  return <Slide {...props} direction="down" />
+  return <Slide {...props} direction="down" />;
 }
 
 export const ToastMessage = (props) => {
-  const classes = useStyles()
+  const classes = useStyles();
   return (
     <>
       <Snackbar
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
         open={props.open}
         autoHideDuration={2000}
         TransitionComponent={SlideTransition}
@@ -66,8 +70,9 @@ export const ToastMessage = (props) => {
           component="div"
           className={`
           ${classes.toastBlock}
-          ${props.props.successpopup ? classes.successColor : classes.errorColor
-            }`}
+          ${
+            props.props.successpopup ? classes.successColor : classes.errorColor
+          }`}
         >
           {props.props.successpopup ? (
             <CheckCircleOutlinedIcon className={classes.successIcon} />
@@ -86,5 +91,5 @@ export const ToastMessage = (props) => {
         </Typography>
       </Snackbar>
     </>
-  )
-}
+  );
+};
